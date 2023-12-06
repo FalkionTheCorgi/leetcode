@@ -1,0 +1,71 @@
+class Solution {
+    fun isValid(s: String): Boolean {
+        
+        val abreColchete = '['
+        val fechaColchete = ']'
+        
+        val abreParentese = '('
+        val fechaParentese = ')'
+        
+        val abreChave = '{'
+        val fechaChave = '}'
+        
+        val array = ArrayList<Char>()
+        
+        
+        
+        s.forEachIndexed { _, caractere ->
+            
+            array.add(caractere)
+            
+        }
+        
+        while(array.isNotEmpty()){
+            
+            val firstIndexColchete = array.lastIndexOf(abreColchete)
+            val firstIndexChave = array.lastIndexOf(abreChave)
+            val firstIndexParentese = array.lastIndexOf(abreParentese)
+
+            
+            if(firstIndexColchete != array.size -1 && firstIndexColchete > firstIndexChave && firstIndexColchete > firstIndexParentese) {
+                
+               if(array[firstIndexColchete + 1] == fechaColchete){
+                   array.removeAt(firstIndexColchete)
+                   array.removeAt(firstIndexColchete)
+               } else {
+                   break
+               }
+                
+            } else if(firstIndexChave != array.size -1 && firstIndexChave > firstIndexColchete && firstIndexChave > firstIndexParentese){
+                
+                if(array[firstIndexChave + 1] == fechaChave){
+                   array.removeAt(firstIndexChave)
+                   array.removeAt(firstIndexChave)
+               } else {
+                   break
+               }
+                
+            }else if(firstIndexParentese != array.size -1 && firstIndexParentese > firstIndexColchete && firstIndexParentese > firstIndexChave){
+                
+                if(array[firstIndexParentese + 1] == fechaParentese){
+                   array.removeAt(firstIndexParentese)
+                   array.removeAt(firstIndexParentese)
+               } else {
+                   break
+               }
+                
+            } else {
+                break
+            }
+     
+            
+        }
+      
+        
+        if(array.isEmpty())
+        	return true
+        else
+        	return false
+        
+    }
+}
