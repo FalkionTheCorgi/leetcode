@@ -1,0 +1,30 @@
+class Solution {
+    fun totalMoney(n: Int): Int {
+        
+        val array: ArrayList<Int> = ArrayList()
+        var ammount = 0
+        
+        for(i in 0..n-1){
+
+            if(i % 7 == 0 && i != 0){
+
+                ammount += array[i - 7] + 1
+                array.add(array[i - 7] + 1)
+
+            } else {
+
+                if(ammount == 0){
+                    ammount = 1
+                    array.add(1)
+                }else{
+                    ammount = ammount + (array[i - 1] + 1)
+                    array.add(array[i - 1] + 1)
+                }
+            }
+
+        }
+
+        return ammount
+
+    }
+}
