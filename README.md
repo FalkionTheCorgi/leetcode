@@ -4,4 +4,5 @@
 - [111. Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
 - [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/)
 - [136. Single Number](https://leetcode.com/problems/single-number/)
+- [1773. Count Items Matching a Rule](https://leetcode.com/problems/count-items-matching-a-rule/)
 
