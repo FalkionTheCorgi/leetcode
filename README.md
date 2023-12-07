@@ -6,4 +6,5 @@
 - [136. Single Number](https://leetcode.com/problems/single-number/)
 - [1773. Count Items Matching a Rule](https://leetcode.com/problems/count-items-matching-a-rule/)
 - [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+- [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/)
 
