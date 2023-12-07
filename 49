@@ -1,0 +1,75 @@
+class Solution {
+    fun groupAnagrams(strs: Array<String>): List<List<String>> {
+        
+        val words : ArrayList<String> = ArrayList(strs.toList())
+		val groups : ArrayList<ArrayList<String>> = ArrayList()
+        
+        var startIndex = 0
+        var firstWord = ""
+        var compareWord : String
+        var enter = true
+        
+        while(true){
+            if(enter && words.isNotEmpty()){
+                firstWord = words[startIndex] 
+        		words.removeAt(startIndex)
+                groups.add(arrayListOf(firstWord))
+                enter = false
+            }
+            
+            if(words.isEmpty()){
+               break 
+            }
+            
+            compareWord = words[startIndex]
+     
+            if(firstWord.length == compareWord.length){
+
+                if(compareAllWords(firstWord, compareWord)){
+                    groups[groups.size-1].add(compareWord)
+                    words.removeAt(startIndex)
+                }else{
+                	startIndex++ 
+                }
+
+            } else {
+                startIndex++
+            }
+            if(startIndex == words.size){
+                startIndex = 0
+                enter = true
+            }
+          	
+                          
+            
+        }
+        
+        return groups
+
+    }
+    fun compareAllWords(w1: String, w2: String): Boolean{
+        
+        val word1 : ArrayList<Char> = ArrayList()
+        val word2 : ArrayList<Char> = ArrayList()
+        
+        w1.forEach{ char->
+        	word1.add(char)	  
+        }
+        
+        w2.forEach{ char->
+        	word2.add(char)	  
+        }
+        
+        for(i in 0..word1.size - 1){
+            if(word2.contains(word1[i]))
+            	word2.remove(word1[i])
+        }
+        
+        if(word2.isEmpty())
+        	return true
+        else 
+        	return false
+        
+        
+    }
+}
